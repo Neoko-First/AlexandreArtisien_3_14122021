@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: auto;
+  width: auto;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 70px;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  height: 60px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header div:nth-child(1) {
+  width: 20%;
+}
+header div:nth-child(2) {
+  width: 60%;
+}
+header div:nth-child(2) img {
+  width: 100%;
+}
+header div:nth-child(3) {
+  width: 20%;
+}
+
+main .localisation {
+  width: 100%;
+  height: auto;
+  background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0 15px 0;
+  font-weight: bold;
+  color: #353535;
+}
+main .localisation i {
+  margin-right: 15px;
+}
+main .explore {
+  width: 100%;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 0 40px 0;
+}
+main .explore h1 {
+  width: 70%;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+main .explore p {
+  width: 80%;
+  text-align: center;
+  color: #4d4d4d;
+  margin-bottom: 20px;
+}
+main .explore a {
+  text-decoration: none;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: #ff79da;
+  background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+}
+main .fonctionnement {
+  width: 100%;
+  padding: 40px 20px 40px 20px;
+}
+main .fonctionnement h2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+main .fonctionnement .languetteFonctionnementContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+main .fonctionnement .languetteFonctionnementContainer :last-child {
+  margin-bottom: 0px;
+}
+main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement {
+  border-radius: 20px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
+  position: relative;
+  padding: 25px 0 25px 40px;
+  display: flex;
+  align-items: center;
+  width: 95%;
+  margin-bottom: 25px;
+}
+main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement :nth-child(1) {
+  background-color: #9356dc;
+  color: white;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  position: absolute;
+  left: -10px;
+}
+main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement :nth-child(2) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #7e7e7e;
+  margin-right: 20px;
+}
+main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement :nth-child(3) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 17px;
+  font-weight: bold;
+}
+main .restaurantsList {
+  width: 100%;
+  padding: 40px 20px 40px 20px;
+}
+main .restaurantsList h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+main .restaurantsList .carteListRestaurant {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-bottom: 20px;
+}
+main .restaurantsList .carteListRestaurant .imageListResto {
+  height: 130px;
+  width: 100%;
+}
+main .restaurantsList .carteListRestaurant .imageListResto img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+main .restaurantsList .carteListRestaurant .infosListResto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px 15px 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoLeft :nth-child(1) {
+  font-weight: bold;
+}
+main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight {
+  font-size: 20px;
+}
+
+footer {
+  height: 100px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #353535;
+}
+
+/*# sourceMappingURL=style.css.map */

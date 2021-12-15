@@ -14,21 +14,25 @@
     <!-- Entête -->
     <header>
       <div></div>
-      <div><img src="image/logo/ohmyfood.png" alt="logo ohmyfood" /></div>
-      <div></div>
+      <div><img src="image/logo/ohmyfood@2x.svg" alt="logo ohmyfood" /></div>
     </header>
 
     <!-- Contenu de la page -->
     <main>
+      <!-- Barre qui affiche la localisation -->
       <div class="localisation">
         <i class="fas fa-map-marker-alt"></i>
         <span>Paris, Belleville</span>
       </div>
+
+      <!-- Section des recherche des restaurants -->
       <section class="explore">
         <h1>Réservez le menu qui vous convient</h1>
         <p>Découvrez des restaurants d'exception, séléctionnés par nos soins</p>
         <a href="#">Explorer nos restaurants</a>
       </section>
+
+      <!-- Section d'explication du fonctionnement du site -->
       <section class="fonctionnement">
         <h2>Fonctionnement</h2>
         <div class="languetteFonctionnementContainer">
@@ -49,10 +53,17 @@
           </div>
         </div>
       </section>
+
+      <!-- Section de proposition des différents restaurants -->
       <section class="restaurantsList">
         <h2>Restaurants</h2>
+        <!-- carte d'identité d'un restaurant -->
         <div class="carteListRestaurant">
+          <a href="HTML/menu1.html"></a>
           <div class="imageListResto">
+            <div class="etiquetteNouveau">
+              <span>Nouveau</span>
+            </div>
             <img
               src="image/restaurants/palette_du_gout.jpg"
               alt="palette_du_gout"
@@ -65,11 +76,17 @@
             </div>
             <div class="infosListRestoRight">
               <i class="far fa-heart"></i>
+              <i class="fas fa-heart"></i>
             </div>
           </div>
         </div>
+        <!-- carte d'identité d'un restaurant -->
         <div class="carteListRestaurant">
+          <a href="HTML/menu2.html"></a>
           <div class="imageListResto">
+            <div class="etiquetteNouveau">
+              <span>Nouveau</span>
+            </div>
             <img
               src="image/restaurants/note_enchantee.jpg"
               alt="note_enchantee"
@@ -77,15 +94,17 @@
           </div>
           <div class="infosListResto">
             <div class="infosListRestoLeft">
-              <p>La palette du goût</p>
-              <p>Ménilmontant</p>
+              <p>La note enchantée</p>
+              <p>Charonne</p>
             </div>
             <div class="infosListRestoRight">
               <i class="far fa-heart"></i>
             </div>
           </div>
         </div>
+        <!-- carte d'identité d'un restaurant -->
         <div class="carteListRestaurant">
+          <a href="HTML/menu3.html"></a>
           <div class="imageListResto">
             <img
               src="image/restaurants/a_la_francaise.jpg"
@@ -94,15 +113,17 @@
           </div>
           <div class="infosListResto">
             <div class="infosListRestoLeft">
-              <p>La palette du goût</p>
-              <p>Ménilmontant</p>
+              <p>À la française</p>
+              <p>Cité rouge</p>
             </div>
             <div class="infosListRestoRight">
               <i class="far fa-heart"></i>
             </div>
           </div>
         </div>
+        <!-- carte d'identité d'un restaurant -->
         <div class="carteListRestaurant">
+          <a href="HTML/menu4.html"></a>
           <div class="imageListResto">
             <img
               src="image/restaurants/delice_des_sens.jpg"
@@ -111,8 +132,8 @@
           </div>
           <div class="infosListResto">
             <div class="infosListRestoLeft">
-              <p>La palette du goût</p>
-              <p>Ménilmontant</p>
+              <p>Le délice des sens</p>
+              <p>Folie-Méricourt</p>
             </div>
             <div class="infosListRestoRight">
               <i class="far fa-heart"></i>
@@ -123,6 +144,18 @@
     </main>
 
     <!-- pied de page -->
-    <footer></footer>
+    <footer>
+      <div>
+        <h3>ohmyfood</h3>
+      </div>
+      <div>
+        <a href="#"><i class="fas fa-utensils"></i>Proposer un restaurant</a>
+        <a href="#"><i class="fas fa-hands-helping"></i>Devenir partenaire</a>
+      </div>
+      <div>
+        <a href="#">Mention légales</a>
+        <a href="mailto:ohmyfoodcontact@gmail.com">Contact</a>
+      </div>
+    </footer>
   </body>
 </html>

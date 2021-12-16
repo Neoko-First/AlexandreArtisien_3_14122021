@@ -259,12 +259,19 @@ main {
   // page détaillée de chaque restaurant
   .menuContainer {
     width: 100%;
-    height: auto;
-    background-color: orange;
-    padding-top: 220px;
+    padding-top: 210px;
+    position: relative;
+    z-index: 1;
+    img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+      object-fit: cover;
+      height: 230px;
+    }
     .menu {
       width: 100%;
-      height: 500px;
       background-color: white;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
@@ -273,14 +280,13 @@ main {
         width: 95%;
         display: flex;
         align-items: center;
-        justify-content: space-between; font-size: 24px;
+        justify-content: space-between;
+        font-size: 24px;
         h1 {
           font-family: "Shrikhand", cursive;
-         
         }
         :nth-child(3) {
           display: none;
-          
         }
       }
       .partieDuMenu {
@@ -295,6 +301,87 @@ main {
           width: 40px;
           height: 3px;
           background-color: $tertiaire;
+        }
+        .plat {
+          width: 100%;
+          height: 75px;
+          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.158);
+          border-radius: 15px;
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          .titreEtdescriptionEtPrixPlat {
+            width: 90%;
+            -webkit-transition: width 0.4s ease-in-out;
+            -moz-transition: width 0.4s ease-in-out;
+            -o-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            .titrePlat {
+              font-weight: bold;
+              font-size: 19px;
+              padding: 13px 0 0 10px;
+              line-height: 25px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            .descriptionEtPrixPlat {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              padding: 0 0 13px 10px;
+              line-height: 25px;
+              span {
+                &:nth-child(1) {
+                  color: #3d3d3d;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+                &:nth-child(2) {
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+          .choisirPlat {
+            background-color: $tertiaire;
+            color: white;
+            width: 70px;
+            height: 75px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            -webkit-transition: right 0.4s ease-in-out;
+            -moz-transition: right 0.4s ease-in-out;
+            -o-transition: right 0.4s ease-in-out;
+            transition: right 0.4s ease-in-out;
+            display: flex;
+            position: absolute;
+            right: -70px;
+          }
+          @keyframes turnAround {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          &:hover .titreEtdescriptionEtPrixPlat {
+            width: 70%;
+          }
+          &:hover .choisirPlat i {
+            animation: 0.4s linear both running turnAround;
+          }
+          &:hover .choisirPlat {
+            right: 0px;
+          }
         }
       }
     }

@@ -14,6 +14,7 @@ html {
   height: 100%;
   width: 100%;
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 body {
@@ -64,8 +65,11 @@ header {
 
 // Contenu de la page
 main {
+  position: relative;
+
   // Barre qui affiche la localisation
   .localisation {
+    cursor: pointer;
     width: 100%;
     height: auto;
     background-color: #eaeaea;
@@ -112,6 +116,12 @@ main {
         rgba(255, 121, 218, 1) 0%,
         rgba(147, 86, 220, 1) 100%
       );
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.521);
+      transition: 0.2s;
+      &:hover {
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.74);
+        background: linear-gradient(180deg, #ff8cde 0%, #9f6ddd 100%);
+      }
     }
   }
 
@@ -140,6 +150,13 @@ main {
         align-items: center;
         width: 95%;
         margin-bottom: 25px;
+        cursor: pointer;
+        &:hover {
+          background-color: #f5edff;
+        }
+        &:hover :nth-child(2) {
+          color: $primaire;
+        }
         &:active {
           background-color: #f5edff;
         }
@@ -244,12 +261,36 @@ main {
           pointer-events: all;
           i {
             z-index: 11;
+            cursor: pointer;
           }
           i:nth-child(2) {
             display: none;
+            background: -webkit-linear-gradient(
+              transparent 50%,
+              #9356dc,
+              #ff79da
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% 300%;
+            background-position: 100% 0%;
+            // animation: remplissageCoeur 1s both ease;
           }
           i:nth-child(1):active {
             display: none;
+          }
+          i:nth-child(1):active + i:nth-child(2) {
+            display: block;
+            animation: remplissageCoeur 1s both ease;
+          }
+          @keyframes remplissageCoeur {
+            0% {
+              background-position: 100% 30%;
+            }
+            100% {
+              background-position: 100% 100%;
+            }
           }
         }
       }
@@ -275,7 +316,7 @@ main {
       background-color: white;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      padding: 40px 20px;
+      padding: 40px 20px 70px 20px;
       .titreEtLikeRestaurant {
         width: 95%;
         display: flex;
@@ -285,13 +326,44 @@ main {
         h1 {
           font-family: "Shrikhand", cursive;
         }
-        :nth-child(3) {
+        i {
+          cursor: pointer;
+        }
+        i:nth-child(2):active {
           display: none;
         }
+        i:nth-child(2):active + i:nth-child(3) {
+          display: block;
+          animation: remplissageCoeur 1s both ease;
+        }
+        :nth-child(3) {
+          display: none;
+          background: -webkit-linear-gradient(
+            transparent 50%,
+            #9356dc,
+            #ff79da
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 300% 300%;
+          background-position: 100% 0%;
+        }
       }
+
       .partieDuMenu {
         width: 100%;
         margin-top: 30px;
+        &:nth-child(2) {
+          animation: 0.4s linear 0.3s both running apparitionEntree;
+        }
+        &:nth-child(3) {
+          animation: 0.4s linear 0.8s both running apparitionEntree;
+        }
+        &:nth-child(4) {
+          animation: 0.4s linear 1.2s both running apparitionEntree;
+          margin-bottom: 50px;
+        }
         h2 {
           text-transform: uppercase;
           font-size: 15px;
@@ -314,7 +386,7 @@ main {
           position: relative;
           cursor: pointer;
           .titreEtdescriptionEtPrixPlat {
-            width: 90%;
+            width: 95%;
             -webkit-transition: width 0.4s ease-in-out;
             -moz-transition: width 0.4s ease-in-out;
             -o-transition: width 0.4s ease-in-out;
@@ -374,7 +446,7 @@ main {
             }
           }
           &:hover .titreEtdescriptionEtPrixPlat {
-            width: 70%;
+            width: 75%;
           }
           &:hover .choisirPlat i {
             animation: 0.4s linear both running turnAround;
@@ -382,8 +454,118 @@ main {
           &:hover .choisirPlat {
             right: 0px;
           }
+          @keyframes apparitionEntree {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 100%;
+            }
+          }
+          @keyframes apparitionPlat {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 100%;
+            }
+          }
+          @keyframes apparitionDessert {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 100%;
+            }
+          }
         }
       }
+      .boutonCommander {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+          text-decoration: none;
+          color: white;
+          padding: 15px 25px;
+          border-radius: 30px;
+          background: #ff79da;
+          background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+          text-align: center;
+          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.521);
+          transition: 0.2s;
+          &:hover {
+            box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.74);
+            background: linear-gradient(180deg, #ff8cde 0%, #9f6ddd 100%);
+          }
+        }
+      }
+    }
+  }
+
+  // loading spinner
+  .loadingSpinner {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: $tertiaire;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 0.3s linear 3s forwards running apparitionDuSpinner;
+    display: none;
+    @keyframes apparitionDuSpinner {
+      from {
+        opacity: 100%;
+        pointer-events: all;
+      }
+      to {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    svg {
+      width: 70%;
+    }
+    .lettreSpinner {
+      opacity: 0;
+    }
+    @keyframes annimationDuSpinner {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 100%;
+      }
+    }
+    .lettreSpinner:nth-child(1) {
+      animation: 0.2s linear forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(2) {
+      animation: 0.2s linear 0.3125s forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(3) {
+      animation: 0.2s linear 0.625s forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(4) {
+      animation: 0.2s linear 0.9375s forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(5) {
+      animation: 0.2s linear 1.25s forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(6) {
+      animation: 0.2s linear 1.5625s forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(7) {
+      animation: 0.2s linear 1.875s forwards running annimationDuSpinner;
+    }
+    .lettreSpinner:nth-child(8) {
+      animation: 0.2s linear 2.1875s forwards running annimationDuSpinner;
     }
   }
 }

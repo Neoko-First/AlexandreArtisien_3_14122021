@@ -11,6 +11,7 @@ html {
   height: 100%;
   width: 100%;
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 body {
@@ -52,7 +53,11 @@ header div:nth-child(2) img {
   max-width: 100%;
 }
 
+main {
+  position: relative;
+}
 main .localisation {
+  cursor: pointer;
   width: 100%;
   height: auto;
   background-color: #eaeaea;
@@ -94,6 +99,12 @@ main .explore a {
   border-radius: 30px;
   background: #ff79da;
   background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.521);
+  transition: 0.2s;
+}
+main .explore a:hover {
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.74);
+  background: linear-gradient(180deg, #ff8cde 0%, #9f6ddd 100%);
 }
 main .fonctionnement {
   width: 100%;
@@ -121,6 +132,13 @@ main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement 
   align-items: center;
   width: 95%;
   margin-bottom: 25px;
+  cursor: pointer;
+}
+main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement:hover {
+  background-color: #f5edff;
+}
+main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement:hover :nth-child(2) {
+  color: #9356dc;
 }
 main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement:active {
   background-color: #f5edff;
@@ -223,12 +241,31 @@ main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight 
 }
 main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i {
   z-index: 11;
+  cursor: pointer;
 }
 main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(2) {
   display: none;
+  background: -webkit-linear-gradient(transparent 50%, #9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  background-position: 100% 0%;
 }
 main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(1):active {
   display: none;
+}
+main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(1):active + i:nth-child(2) {
+  display: block;
+  animation: remplissageCoeur 1s both ease;
+}
+@keyframes remplissageCoeur {
+  0% {
+    background-position: 100% 30%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 main .menuContainer {
   width: 100%;
@@ -249,7 +286,7 @@ main .menuContainer .menu {
   background-color: white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 40px 20px;
+  padding: 40px 20px 70px 20px;
 }
 main .menuContainer .menu .titreEtLikeRestaurant {
   width: 95%;
@@ -261,12 +298,38 @@ main .menuContainer .menu .titreEtLikeRestaurant {
 main .menuContainer .menu .titreEtLikeRestaurant h1 {
   font-family: "Shrikhand", cursive;
 }
+main .menuContainer .menu .titreEtLikeRestaurant i {
+  cursor: pointer;
+}
+main .menuContainer .menu .titreEtLikeRestaurant i:nth-child(2):active {
+  display: none;
+}
+main .menuContainer .menu .titreEtLikeRestaurant i:nth-child(2):active + i:nth-child(3) {
+  display: block;
+  animation: remplissageCoeur 1s both ease;
+}
 main .menuContainer .menu .titreEtLikeRestaurant :nth-child(3) {
   display: none;
+  background: -webkit-linear-gradient(transparent 50%, #9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  background-position: 100% 0%;
 }
 main .menuContainer .menu .partieDuMenu {
   width: 100%;
   margin-top: 30px;
+}
+main .menuContainer .menu .partieDuMenu:nth-child(2) {
+  animation: 0.4s linear 0.3s both running apparitionEntree;
+}
+main .menuContainer .menu .partieDuMenu:nth-child(3) {
+  animation: 0.4s linear 0.8s both running apparitionEntree;
+}
+main .menuContainer .menu .partieDuMenu:nth-child(4) {
+  animation: 0.4s linear 1.2s both running apparitionEntree;
+  margin-bottom: 50px;
 }
 main .menuContainer .menu .partieDuMenu h2 {
   text-transform: uppercase;
@@ -291,7 +354,7 @@ main .menuContainer .menu .partieDuMenu .plat {
   cursor: pointer;
 }
 main .menuContainer .menu .partieDuMenu .plat .titreEtdescriptionEtPrixPlat {
-  width: 90%;
+  width: 95%;
   -webkit-transition: width 0.4s ease-in-out;
   -moz-transition: width 0.4s ease-in-out;
   -o-transition: width 0.4s ease-in-out;
@@ -349,13 +412,121 @@ main .menuContainer .menu .partieDuMenu .plat .choisirPlat {
   }
 }
 main .menuContainer .menu .partieDuMenu .plat:hover .titreEtdescriptionEtPrixPlat {
-  width: 70%;
+  width: 75%;
 }
 main .menuContainer .menu .partieDuMenu .plat:hover .choisirPlat i {
   animation: 0.4s linear both running turnAround;
 }
 main .menuContainer .menu .partieDuMenu .plat:hover .choisirPlat {
   right: 0px;
+}
+@keyframes apparitionEntree {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes apparitionPlat {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes apparitionDessert {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+main .menuContainer .menu .boutonCommander {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .menuContainer .menu .boutonCommander a {
+  text-decoration: none;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: #ff79da;
+  background: linear-gradient(180deg, #ff79da 0%, #9356dc 100%);
+  text-align: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.521);
+  transition: 0.2s;
+}
+main .menuContainer .menu .boutonCommander a:hover {
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.74);
+  background: linear-gradient(180deg, #ff8cde 0%, #9f6ddd 100%);
+}
+main .loadingSpinner {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #99e2d0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: 0.3s linear 3s forwards running apparitionDuSpinner;
+  display: none;
+}
+@keyframes apparitionDuSpinner {
+  from {
+    opacity: 100%;
+    pointer-events: all;
+  }
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+main .loadingSpinner svg {
+  width: 70%;
+}
+main .loadingSpinner .lettreSpinner {
+  opacity: 0;
+}
+@keyframes annimationDuSpinner {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+main .loadingSpinner .lettreSpinner:nth-child(1) {
+  animation: 0.2s linear forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(2) {
+  animation: 0.2s linear 0.3125s forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(3) {
+  animation: 0.2s linear 0.625s forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(4) {
+  animation: 0.2s linear 0.9375s forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(5) {
+  animation: 0.2s linear 1.25s forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(6) {
+  animation: 0.2s linear 1.5625s forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(7) {
+  animation: 0.2s linear 1.875s forwards running annimationDuSpinner;
+}
+main .loadingSpinner .lettreSpinner:nth-child(8) {
+  animation: 0.2s linear 2.1875s forwards running annimationDuSpinner;
 }
 
 footer {

@@ -195,103 +195,178 @@ main {
     }
   }
 
+  // responsive tablette de la section d'explication du fonctionnement du site
+  @media screen and (min-width: 768px) {
+    .fonctionnement {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        width: 90%;
+      }
+      .languetteFonctionnementContainer {
+        width: 80%;
+      }
+    }
+  }
+
+  // responsive pc de la section d'explication du fonctionnement du site
+  @media screen and (min-width: 992px) {
+    .fonctionnement {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        width: 90%;
+      }
+      .languetteFonctionnementContainer {
+        width: 60%;
+      }
+    }
+  }
+
   // Section de proposition des différents restaurants
   .restaurantsList {
     width: 100%;
     padding: 40px 20px 40px 20px;
     background-color: #f6f6f6;
-    h2 {
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    .carteListRestaurant {
-      width: 100%;
+    .restaurantsListContainer {
       display: flex;
       flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-      margin-bottom: 20px;
-      position: relative;
-      a {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        text-decoration: none;
-        color: black;
-        z-index: 10;
+      flex-wrap: wrap;
+      h2 {
+        margin-bottom: 20px;
+        font-weight: bold;
       }
-      .imageListResto {
-        height: 130px;
+      .carteListRestaurant {
         width: 100%;
-        position: relative;
-        .etiquetteNouveau {
-          position: absolute;
-          background-color: $tertiaire;
-          color: #008766;
-          padding: 8px 10px;
-          border-radius: 3px;
-          top: 10px;
-          right: 10px;
-        }
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-top-left-radius: 15px;
-          border-top-right-radius: 15px;
-        }
-      }
-      .infosListResto {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 15px 20px 15px 15px;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.158);
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
-        .infosListRestoLeft {
-          :nth-child(1) {
-            font-weight: bold;
+        margin-bottom: 20px;
+        position: relative;
+        a {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          text-decoration: none;
+          color: black;
+          z-index: 10;
+        }
+        .imageListResto {
+          height: 130px;
+          width: 100%;
+          position: relative;
+          .etiquetteNouveau {
+            position: absolute;
+            background-color: $tertiaire;
+            color: #008766;
+            padding: 8px 10px;
+            border-radius: 3px;
+            top: 10px;
+            right: 10px;
+          }
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
           }
         }
-        .infosListRestoRight {
-          font-size: 20px;
-          z-index: 11;
-          pointer-events: all;
-          i {
+        .infosListResto {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 15px 20px 15px 15px;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          .infosListRestoLeft {
+            :nth-child(1) {
+              font-weight: bold;
+            }
+          }
+          .infosListRestoRight {
+            font-size: 20px;
             z-index: 11;
-            cursor: pointer;
-          }
-          i:nth-child(2) {
-            display: none;
-            background: -webkit-linear-gradient(
-              transparent 50%,
-              #9356dc,
-              #ff79da
-            );
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 300% 300%;
-            background-position: 100% 0%;
-            // animation: remplissageCoeur 1s both ease;
-          }
-          i:nth-child(1):active {
-            display: none;
-          }
-          i:nth-child(1):active + i:nth-child(2) {
-            display: block;
-            animation: remplissageCoeur 1s both ease;
-          }
-          @keyframes remplissageCoeur {
-            0% {
-              background-position: 100% 30%;
+            pointer-events: all;
+            i {
+              z-index: 11;
+              cursor: pointer;
             }
-            100% {
-              background-position: 100% 100%;
+            i:nth-child(2) {
+              display: none;
+              background: -webkit-linear-gradient(
+                transparent 50%,
+                #9356dc,
+                #ff79da
+              );
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-size: 300% 300%;
+              background-position: 100% 0%;
+              // animation: remplissageCoeur 1s both ease;
+            }
+            i:nth-child(1):active {
+              display: none;
+            }
+            i:nth-child(1):active + i:nth-child(2) {
+              display: block;
+              animation: remplissageCoeur 1s both ease;
+            }
+            @keyframes remplissageCoeur {
+              0% {
+                background-position: 100% 30%;
+              }
+              100% {
+                background-position: 100% 100%;
+              }
             }
           }
+        }
+      }
+    }
+  }
+
+  // responsive tablette de la section de proposition des différents restaurants
+  @media screen and (min-width: 768px) {
+    .restaurantsList {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        width: 80%;
+      }
+      .restaurantsListContainer {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        .carteListRestaurant {
+          width: 49%;
+        }
+      }
+    }
+  }
+
+  // responsive pc de la section de proposition des différents restaurants
+  @media screen and (min-width: 768px) {
+    .restaurantsList {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        width: 80%;
+      }
+      .restaurantsListContainer {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        .carteListRestaurant {
+          width: 49%;
         }
       }
     }
@@ -504,6 +579,47 @@ main {
     }
   }
 
+  // responsive tablette de la page détaillée de chaque restaurant
+  @media screen and (min-width: 768px) {
+    .menuContainer {
+      .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .partieDuMenu {
+          width: 80%;
+          .plat {
+            &:hover .titreEtdescriptionEtPrixPlat {
+              width: 85%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // responsive pc de la page détaillée de chaque restaurant
+  @media screen and (min-width: 992px) {
+    .menuContainer {
+      .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .titreEtLikeRestaurant {
+          width: 80%;
+        }
+        .partieDuMenu {
+          width: 80%;
+          .plat {
+            &:hover .titreEtdescriptionEtPrixPlat {
+              width: 85%;
+            }
+          }
+        }
+      }
+    }
+  }
+
   // loading spinner
   .loadingSpinner {
     position: fixed;
@@ -601,6 +717,37 @@ footer {
       }
       i {
         margin-right: 10px;
+      }
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// responsive tablette du footer
+@media screen and (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    div {
+      align-items: center;
+      h3 {
+        font-size: 35px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+// responsive pc du footer
+@media screen and (min-width: 992px) {
+  footer {
+    flex-direction: row;
+    div {
+      align-items: center;
+      h3 {
+        font-size: 35px;
+        margin-bottom: 0px;
       }
     }
   }

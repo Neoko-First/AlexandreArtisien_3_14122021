@@ -174,16 +174,47 @@ main .fonctionnement .languetteFonctionnementContainer .languetteFonctionnement 
   font-size: 17px;
   font-weight: bold;
 }
+@media screen and (min-width: 768px) {
+  main .fonctionnement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .fonctionnement h2 {
+    width: 90%;
+  }
+  main .fonctionnement .languetteFonctionnementContainer {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 992px) {
+  main .fonctionnement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .fonctionnement h2 {
+    width: 90%;
+  }
+  main .fonctionnement .languetteFonctionnementContainer {
+    width: 60%;
+  }
+}
 main .restaurantsList {
   width: 100%;
   padding: 40px 20px 40px 20px;
   background-color: #f6f6f6;
 }
-main .restaurantsList h2 {
+main .restaurantsList .restaurantsListContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+main .restaurantsList .restaurantsListContainer h2 {
   margin-bottom: 20px;
   font-weight: bold;
 }
-main .restaurantsList .carteListRestaurant {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -194,7 +225,7 @@ main .restaurantsList .carteListRestaurant {
   margin-bottom: 20px;
   position: relative;
 }
-main .restaurantsList .carteListRestaurant a {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant a {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -202,12 +233,12 @@ main .restaurantsList .carteListRestaurant a {
   color: black;
   z-index: 10;
 }
-main .restaurantsList .carteListRestaurant .imageListResto {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .imageListResto {
   height: 130px;
   width: 100%;
   position: relative;
 }
-main .restaurantsList .carteListRestaurant .imageListResto .etiquetteNouveau {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .imageListResto .etiquetteNouveau {
   position: absolute;
   background-color: #99e2d0;
   color: #008766;
@@ -216,14 +247,14 @@ main .restaurantsList .carteListRestaurant .imageListResto .etiquetteNouveau {
   top: 10px;
   right: 10px;
 }
-main .restaurantsList .carteListRestaurant .imageListResto img {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .imageListResto img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-main .restaurantsList .carteListRestaurant .infosListResto {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -231,19 +262,19 @@ main .restaurantsList .carteListRestaurant .infosListResto {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoLeft :nth-child(1) {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto .infosListRestoLeft :nth-child(1) {
   font-weight: bold;
 }
-main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto .infosListRestoRight {
   font-size: 20px;
   z-index: 11;
   pointer-events: all;
 }
-main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto .infosListRestoRight i {
   z-index: 11;
   cursor: pointer;
 }
-main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(2) {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(2) {
   display: none;
   background: -webkit-linear-gradient(transparent 50%, #9356dc, #ff79da);
   background-clip: text;
@@ -252,10 +283,10 @@ main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight 
   background-size: 300% 300%;
   background-position: 100% 0%;
 }
-main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(1):active {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(1):active {
   display: none;
 }
-main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(1):active + i:nth-child(2) {
+main .restaurantsList .restaurantsListContainer .carteListRestaurant .infosListResto .infosListRestoRight i:nth-child(1):active + i:nth-child(2) {
   display: block;
   animation: remplissageCoeur 1s both ease;
 }
@@ -265,6 +296,42 @@ main .restaurantsList .carteListRestaurant .infosListResto .infosListRestoRight 
   }
   100% {
     background-position: 100% 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  main .restaurantsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  main .restaurantsList h2 {
+    width: 80%;
+  }
+  main .restaurantsList .restaurantsListContainer {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  main .restaurantsList .restaurantsListContainer .carteListRestaurant {
+    width: 49%;
+  }
+}
+@media screen and (min-width: 768px) {
+  main .restaurantsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  main .restaurantsList h2 {
+    width: 80%;
+  }
+  main .restaurantsList .restaurantsListContainer {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  main .restaurantsList .restaurantsListContainer .carteListRestaurant {
+    width: 49%;
   }
 }
 main .menuContainer {
@@ -465,6 +532,35 @@ main .menuContainer .menu .boutonCommander a:hover {
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.74);
   background: linear-gradient(180deg, #ff8cde 0%, #9f6ddd 100%);
 }
+@media screen and (min-width: 768px) {
+  main .menuContainer .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .menuContainer .menu .partieDuMenu {
+    width: 80%;
+  }
+  main .menuContainer .menu .partieDuMenu .plat:hover .titreEtdescriptionEtPrixPlat {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 992px) {
+  main .menuContainer .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .menuContainer .menu .titreEtLikeRestaurant {
+    width: 80%;
+  }
+  main .menuContainer .menu .partieDuMenu {
+    width: 80%;
+  }
+  main .menuContainer .menu .partieDuMenu .plat:hover .titreEtdescriptionEtPrixPlat {
+    width: 85%;
+  }
+}
 main .loadingSpinner {
   position: fixed;
   height: 100%;
@@ -562,6 +658,34 @@ footer div a:nth-child(2) i {
 }
 footer div a i {
   margin-right: 10px;
+}
+footer div a:hover {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    flex-direction: row;
+  }
+  footer div {
+    align-items: center;
+  }
+  footer div h3 {
+    font-size: 35px;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 992px) {
+  footer {
+    flex-direction: row;
+  }
+  footer div {
+    align-items: center;
+  }
+  footer div h3 {
+    font-size: 35px;
+    margin-bottom: 0px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
